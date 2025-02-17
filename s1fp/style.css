@@ -1,0 +1,83 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  /* Flexbox for Navigation */
+  nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  main {
+    padding: 2rem;
+  }
+  
+  .calendar {
+    margin-bottom: 2rem;
+  }
+  
+  .calendar h2 {
+    text-align: center;
+  }
+  
+  /* CSS Grid for Calendar */
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 columns for each day of the week */
+    gap: 0.5rem;
+  }
+  
+  .day {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .day.empty {
+    background-color: transparent;
+    border: none;
+    cursor: default;
+  }
+  
+  .day:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .preview-content {
+    text-align: center;
+  }
+  
+  .preview-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+  }
