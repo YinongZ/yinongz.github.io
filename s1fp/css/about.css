@@ -1,0 +1,240 @@
+/* About Page Specific Styles */
+.about-page {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .about-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    padding-bottom: 2rem;
+  }
+  
+  .about-header {
+    position: relative;
+    background-color: #f5f5f5;
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  
+  .about-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+  }
+  
+  .header-image {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .header-image img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  section {
+    padding: 3rem 2rem;
+  }
+  
+  section h2 {
+    font-size: 2rem;
+    color: #0066cc;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .story-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .story-text {
+    flex: 3;
+  }
+  
+  .story-text p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+  
+  .story-image {
+    flex: 2;
+    text-align: center;
+  }
+  
+  .story-image img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .steps {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .step {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2.5rem;
+  }
+  
+  .step-number {
+    background-color: #0066cc;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+  }
+  
+ /* Continuing About Page CSS */
+.step-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .type-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  
+  .content-type {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .content-type:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  }
+  
+  .type-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    background-color: #e0f0ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .type-icon:before {
+    font-family: sans-serif;
+    font-size: 2rem;
+    color: #0066cc;
+  }
+  
+  .type-icon.reading:before {
+    content: "📚";
+  }
+  
+  .type-icon.games:before {
+    content: "🎮";
+  }
+  
+  .type-icon.mindfulness:before {
+    content: "🧘";
+  }
+  
+  .type-icon.humor:before {
+    content: "😂";
+  }
+  
+  .content-type h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #0066cc;
+  }
+  
+  .team {
+    background-color: #f5f5f5;
+    padding: 3rem 2rem;
+  }
+  
+  .team-intro {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+  
+  .team-member {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .member-photo {
+    flex: 1;
+    max-width: 180px;
+  }
+  
+  .member-photo img {
+    width: 100%;
+    border-radius: 50%;
+  }
+  
+  .member-info {
+    flex: 3;
+  }
+  
+  .member-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+  
+  .member-title {
+    color: #0066cc;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  
+  .member-bio {
+    line-height: 1.6;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .story-content {
+      flex-direction: column;
+    }
+    
+    .team-member {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .member-photo {
+      margin-bottom: 1.5rem;
+    }
+    
+    .type-grid {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+  }
