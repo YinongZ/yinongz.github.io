@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+/* About Page Specific Styles */
+.about-page {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .about-container {
+    background-color:rgb(241,241,233,0.4);
+    border-radius: 10px;
+    overflow: hidden;
+    padding-bottom: 2rem;
+  }
+  
+  .about-header {
+    position: relative;
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  
+  .about-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+  }
+  
+  .header-image {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .header-image img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  section {
+    padding: 3rem 2rem;
+  }
+  
+  section h2 {
+    font-size: 2rem;
+    color: #1a1a1a;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .story-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .story-text {
+    flex: 3;
+  }
+  
+  .story-text p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+  
+  .story-image {
+    flex: 2;
+    text-align: center;
+  }
+  
+  .story-image img {
+    max-width: 160%;
+    border-radius: 8px;
+  
+  }
+  
+  .steps {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .step {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2.5rem;
+  }
+  
+  .step-number {
+    color:#1c49da;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+  }
+ 
