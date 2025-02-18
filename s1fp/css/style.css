@@ -4,12 +4,13 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Questrial', sans-serif;
   line-height: 1.6;
-  background-color: #f9f9f9;
-  color: #333;
+  background-image: linear-gradient(to top, #1c49da, #fafaf7 30%);
+  color:#1c49da;
 }
 
 a {
@@ -24,12 +25,12 @@ img {
 
 /* Header Styles */
 header {
-  background-color: #ffffff;
+  background-color: rgba(241,241,233);
   padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
+  
 }
 
 .logo {
@@ -39,12 +40,12 @@ header {
 
 .logo h1 {
   font-size: 2.5rem;
-  color: #1a1a1a;
+  color: #1c49da;
 }
 
 .tagline {
   font-size: 1rem;
-  color: #666;
+  color: #8198e2;
   font-style: italic;
 }
 
@@ -59,18 +60,19 @@ nav li {
 }
 
 nav a {
-  color: #333;
+  color:#1c49da;
   font-weight: 500;
   padding: 0.5rem 0;
   position: relative;
 }
 
 nav a:hover {
-  color: #0066cc;
+  color: #1c49da;
 }
 
 nav a.active {
-  color: #0066cc;
+  color: #1c49da;
+  font-weight: bold;
 }
 
 nav a.active:after {
@@ -78,7 +80,7 @@ nav a.active:after {
   display: block;
   width: 100%;
   height: 2px;
-  background-color: #0066cc;
+  background-color: #1c49da;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -117,21 +119,27 @@ main {
   text-align: center;
   font-weight: bold;
   padding: 0.5rem;
-  background-color: #f0f0f0;
+
   border-radius: 4px;
 }
 
 .day {
   min-height: 150px;
-  background-color: #fff;
+  background-color:rgb(241,241,233,0.2);
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
   overflow: hidden;
   position: relative;
+  aspect-ratio: 1;
 }
 
 .day.empty {
   background-color: transparent;
+  box-shadow: none;
+}
+
+.day.empty-withnumber {
+  background-color: rgba(255, 255, 255, 0.2);
   box-shadow: none;
 }
 
@@ -143,7 +151,22 @@ main {
   position: absolute;
   top: 8px;
   left: 8px;
-  background-color: rgba(255,255,255,0.8);
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  z-index: 5;
+  font-size: 1em;
+}
+
+.date-content {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: transparent;
+  color: rgba(241,241,233,255);
   width: 28px;
   height: 28px;
   border-radius: 50%;
@@ -154,21 +177,42 @@ main {
   z-index: 5;
 }
 
+.date-number {
+  position: absolute;
+  top: 5px;
+  left: 8px;
+  background: transparent;
+  color: rgba(241,241,233,255);
+  padding: 2px 6px;
+  font-size: 1.2em;
+  z-index: 1;
+  display: flex;
+  
+}
+
 .day-content {
   display: block;
   height: 100%;
+  width:100%;
+  position:relative;
+  text-decoration:none;
   color: inherit;
 }
 
 .day-content img {
   width: 100%;
-  height: 100px;
+  height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  
+  display:block;
 }
 
 .day-content:hover img {
   transform: scale(1.05);
+}
+
+.day-content.empty .date-number {
+  background: none;
 }
 
 .content-title {
@@ -184,8 +228,8 @@ main {
 
 /* Footer Styles */
 footer {
-  background-color: #333;
-  color: #fff;
+  background-color: transparent;
+  color: rgb(16, 39, 114);
   text-align: center;
   padding: 2rem 1rem;
   margin-top: 3rem;
