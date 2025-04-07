@@ -42,78 +42,14 @@ h2 {
     margin-bottom: 30px;
 }
 
-.code-container {
-    margin: 20px 0;
-    border-radius: 5px;
-    overflow: hidden;
-    background-color: #333;
-}
-
-.code-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #222;
-    padding: 10px 15px;
-    border-bottom: 1px solid #444;
-}
-
-.code-header span {
-    font-weight: bold;
-    color: #4ecdc4;
-}
-
-.code-header button {
-    background-color: #ff6b6b;
-    color: white;
-    padding: 5px 10px;
-    font-size: 0.9em;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.code-header button:hover {
-    background-color: #ff8585;
-    transform: translateY(-1px);
-}
-
 .code-block {
     background-color: #333;
     color: #f0f0f0;
     padding: 15px;
+    border-radius: 5px;
     font-family: 'Courier New', monospace;
     overflow-x: auto;
-}
-
-.full-source-code {
-    background-color: #222;
-    padding: 15px;
-    border-top: 1px solid #444;
-    transition: all 0.3s ease;
-    max-height: 500px;
-    overflow-y: auto;
-}
-
-.full-source-code h3 {
-    color: #ff6b6b;
-    margin-top: 0;
-}
-
-.full-source-code pre {
-    margin: 0;
-    white-space: pre-wrap;
-}
-
-.full-source-code code {
-    font-family: 'Courier New', monospace;
-    color: #f0f0f0;
-    line-height: 1.6;
-}
-
-.hidden {
-    display: none;
+    margin: 20px 0;
 }
 
 .syntax {

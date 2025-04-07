@@ -22,152 +22,21 @@
             <p>Think of this as a function that accepts parameters (your element choices) and applies random operations to produce unpredictable output.</p>
         </div>
         
-        <div class="code-container">
-            <div class="code-header">
-                <span>Function Overview</span>
-                <button id="view-source-btn">View Full Source</button>
-            </div>
-            <div class="code-block">
-                <span class="syntax">function</span> <span class="variable">generatePoem</span>(<span class="variable">subjectElements</span>, <span class="variable">actionElements</span>, <span class="variable">objectElements</span>) {<br>
-                &nbsp;&nbsp;<span class="comment">// Randomly select elements from each array</span><br>
-                &nbsp;&nbsp;<span class="variable">let randomSubject</span> = <span class="variable">subjectElements</span>[<span class="syntax">Math.floor</span>(<span class="syntax">Math.random</span>() * <span class="variable">subjectElements</span>.length)];<br>
-                &nbsp;&nbsp;<span class="variable">let randomAction</span> = <span class="variable">actionElements</span>[<span class="syntax">Math.floor</span>(<span class="syntax">Math.random</span>() * <span class="variable">actionElements</span>.length)];<br>
-                &nbsp;&nbsp;<span class="variable">let randomObject</span> = <span class="variable">objectElements</span>[<span class="syntax">Math.floor</span>(<span class="syntax">Math.random</span>() * <span class="variable">objectElements</span>.length)];<br>
-                <br>
-                &nbsp;&nbsp;<span class="comment">// Apply transformations based on chance</span><br>
-                &nbsp;&nbsp;<span class="syntax">if</span> (<span class="syntax">Math.random</span>() > 0.5) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">randomSubject</span> = <span class="variable">transformElement</span>(<span class="variable">randomSubject</span>);<br>
-                &nbsp;&nbsp;}<br>
-                <br>
-                &nbsp;&nbsp;<span class="comment">// Combine elements into a surreal poetic phrase</span><br>
-                &nbsp;&nbsp;<span class="syntax">return</span> <span class="variable">composePoem</span>(<span class="variable">randomSubject</span>, <span class="variable">randomAction</span>, <span class="variable">randomObject</span>);<br>
-                }
-            </div>
-            <div id="full-source-code" class="full-source-code hidden">
-                <h3>Complete JavaScript Source Code</h3>
-                <pre><code>// Initialize selections
-let selectedSubjects = [];
-let selectedActions = [];
-let selectedObjects = [];
-
-// Toggle selection of buttons
-function toggleSelection(button, type) {
-    if (button.classList.contains('selected')) {
-        button.classList.remove('selected');
-        
-        // Remove from appropriate array
-        if (type === 'subject') {
-            selectedSubjects = selectedSubjects.filter(item => item !== button.textContent);
-        } else if (type === 'action') {
-            selectedActions = selectedActions.filter(item => item !== button.textContent);
-        } else if (type === 'object') {
-            selectedObjects = selectedObjects.filter(item => item !== button.textContent);
-        }
-    } else {
-        button.classList.add('selected');
-        
-        // Add to appropriate array
-        if (type === 'subject') {
-            selectedSubjects.push(button.textContent);
-        } else if (type === 'action') {
-            selectedActions.push(button.textContent);
-        } else if (type === 'object') {
-            selectedObjects.push(button.textContent);
-        }
-    }
-}
-
-// Poem generation function
-function generatePoem() {
-    // Verify we have selections
-    if (selectedSubjects.length === 0 || selectedActions.length === 0 || selectedObjects.length === 0) {
-        alert("Please select at least one item from each category");
-        return;
-    }
-    
-    // Get random elements from each category
-    const randomSubject = selectedSubjects[Math.floor(Math.random() * selectedSubjects.length)];
-    const randomAction = selectedActions[Math.floor(Math.random() * selectedActions.length)];
-    const randomObject = selectedObjects[Math.floor(Math.random() * selectedObjects.length)];
-    
-    // Apply transformations based on chance
-    let transformedSubject = randomSubject;
-    let transformedObject = randomObject;
-    
-    // Random chance to apply transformations
-    if (Math.random() > 0.7) {
-        transformedSubject = transformSubject(transformedSubject);
-    }
-    
-    if (Math.random() > 0.7) {
-        transformedObject = transformObject(transformedObject);
-    }
-    
-    // Add surrealist context/expansion
-    let poemExtension = getSurrealistExtension();
-    
-    // Create final poem
-    let finalPoem = `${transformedSubject} ${randomAction} ${transformedObject}${poemExtension}`;
-    
-    // Display the poem with animation
-    const poemDisplay = document.getElementById('poem-display');
-    poemDisplay.textContent = '';
-    poemDisplay.classList.remove('animate-in');
-    
-    // Force reflow
-    void poemDisplay.offsetWidth;
-    
-    poemDisplay.classList.add('animate-in');
-    poemDisplay.textContent = finalPoem;
-}
-
-// Helper functions for transformations
-function transformSubject(subject) {
-    const transformations = [
-        `The ghost of ${subject.toLowerCase()}`,
-        `${subject} in reverse`,
-        `A thousand ${subject.toLowerCase()}s`,
-        `The memory of ${subject.toLowerCase()}`,
-        `The absence of ${subject.toLowerCase()}`
-    ];
-    
-    return transformations[Math.floor(Math.random() * transformations.length)];
-}
-
-function transformObject(object) {
-    const transformations = [
-        `${object} made of smoke`,
-        `${object} from another time`,
-        `${object} without substance`,
-        `the idea of ${object}`,
-        `${object} that never existed`
-    ];
-    
-    return transformations[Math.floor(Math.random() * transformations.length)];
-}
-
-function getSurrealistExtension() {
-    const extensions = [
-        " while time stands still",
-        " beneath the unconscious sky",
-        " inside a dream of itself",
-        " as reality dissolves",
-        " beyond the edge of reason",
-        " where memories fold into themselves",
-        " through the doorway of perception",
-        " against the fabric of logic",
-        " when no one is watching",
-        " across the landscape of desire"
-    ];
-    
-    // 70% chance to add an extension
-    if (Math.random() > 0.3) {
-        return extensions[Math.floor(Math.random() * extensions.length)];
-    } else {
-        return "";
-    }
-}</code></pre>
-            </div>
+        <div class="code-block">
+            <span class="syntax">function</span> <span class="variable">generatePoem</span>(<span class="variable">subjectElements</span>, <span class="variable">actionElements</span>, <span class="variable">objectElements</span>) {<br>
+            &nbsp;&nbsp;<span class="comment">// Randomly select elements from each array</span><br>
+            &nbsp;&nbsp;<span class="variable">let randomSubject</span> = <span class="variable">subjectElements</span>[<span class="syntax">Math.floor</span>(<span class="syntax">Math.random</span>() * <span class="variable">subjectElements</span>.length)];<br>
+            &nbsp;&nbsp;<span class="variable">let randomAction</span> = <span class="variable">actionElements</span>[<span class="syntax">Math.floor</span>(<span class="syntax">Math.random</span>() * <span class="variable">actionElements</span>.length)];<br>
+            &nbsp;&nbsp;<span class="variable">let randomObject</span> = <span class="variable">objectElements</span>[<span class="syntax">Math.floor</span>(<span class="syntax">Math.random</span>() * <span class="variable">objectElements</span>.length)];<br>
+            <br>
+            &nbsp;&nbsp;<span class="comment">// Apply transformations based on chance</span><br>
+            &nbsp;&nbsp;<span class="syntax">if</span> (<span class="syntax">Math.random</span>() > 0.5) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">randomSubject</span> = <span class="variable">transformElement</span>(<span class="variable">randomSubject</span>);<br>
+            &nbsp;&nbsp;}<br>
+            <br>
+            &nbsp;&nbsp;<span class="comment">// Combine elements into a surreal poetic phrase</span><br>
+            &nbsp;&nbsp;<span class="syntax">return</span> <span class="variable">composePoem</span>(<span class="variable">randomSubject</span>, <span class="variable">randomAction</span>, <span class="variable">randomObject</span>);<br>
+            }
         </div>
         
         <div id="game-area">
