@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Is Too Real</title>
+    <!-- Direct embedding of styles to avoid any path issues -->
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #FFFBF7;
+            color: #2D2A32;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: Georgia, serif;
+            font-weight: normal;
+            line-height: 1.2;
+        }
+        
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: #2D2A32;
+            color: #FFFBF7;
+        }
+        
+        .btn-primary:hover {
+            background: #000;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* Header */
+        .header {
+            min-height: 100vh;
+            padding: 2rem 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(120deg, #FF5E5B, #FFAAEE);
+        }
+        
+        .header-content {
+            position: relative;
+            color: #FFFBF7;
+            max-width: 800px;
+            z-index: 2;
+        }
+        
+        .header-subtitle {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+            display: inline-block;
+            background: #2D2A32;
+            padding: 0.5rem 1.5rem;
+        }
+        
+        .header-title {
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+        
+        .header-title span {
+            display: block;
+            color: #FFED66;
+        }
+        
+        .header-description {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+        
+        /* Concept Section */
+        .concept {
+            padding: 6rem 0;
+            background-color: #FFFBF7;
+        }
+        
+        .concept-heading {
+            margin-bottom: 4rem;
+        }
+        
+        .concept-subtitle {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #FF5E5B;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .feature {
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            padding: 2rem;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(120deg, #00CECB, #FFED66);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .feature-title {
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        /* Process Section */
+        .process {
+            padding: 6rem 0;
+            background-color: #2D2A32;
+            color: #FFFBF7;
+        }
+        
+        .process-heading {
+            margin-bottom: 4rem;
+        }
+        
+        .process-subtitle {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #00CECB;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            position: relative;
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .step:hover {
+            transform: scale(1.05);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background: #FF5E5B;
+            color: #FFFBF7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .step-title {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Preview Section */
+        .preview {
+            padding: 6rem 0;
+            background-color: #FFFBF7;
+        }
+        
+        .preview-heading {
+            margin-bottom: 4rem;
+        }
+        
+        .preview-subtitle {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #FF5E5B;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .preview-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .weather-card {
+            width: 350px;
+            background: linear-gradient(120deg, #FF5E5B, #FFAAEE);
+            color: #FFFBF7;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .weather-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .weather-location {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .weather-date {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        .weather-main {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .weather-temp {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-right: 2rem;
+        }
+        
+        .weather-icon {
+            font-size: 3.5rem;
+        }
+        
+        .weather-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        
+        .weather-detail {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+        
+        .weather-detail-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .weather-detail-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .email-card {
+            width: 350px;
+            background: #fff;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: left;
+            border: 2px dashed rgba(255,94,91,0.2);
+        }
+        
+        .email-header {
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .email-subject {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #2D2A32;
+        }
+        
+        .email-sender {
+            font-size: 1rem;
+            color: rgba(0,0,0,0.6);
+        }
+        
+        .email-body {
+            line-height: 1.7;
+        }
+        
+        .email-body p {
+            margin-bottom: 1rem;
+        }
+        
+        .email-list {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .email-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .email-song {
+            display: block;
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(0,0,0,0.05);
+            border-radius: 10px;
+            text-decoration: none;
+            color: #FF5E5B;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .email-song:hover {
+            background: rgba(0,0,0,0.08);
+            transform: translateY(-5px);
+        }
+        
+        /* Connect Section */
+        .connect {
+            padding: 6rem 0;
+            background: linear-gradient(120deg, #00CECB, #FFED66);
+            color: #2D2A32;
+        }
+        
+        .connect-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .connect-subtitle {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: #2D2A32;
+            opacity: 0.7;
+        }
+        
+        .connect-heading {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .connect-desc {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .connect .btn {
+            background: #2D2A32;
+            color: #FFFBF7;
+            padding: 1.2rem 3rem;
+            font-size: 1.3rem;
+        }
+        
+        .connect .btn:hover {
+            background: #000;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #2D2A32;
+            color: #FFFBF7;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .footer-link {
+            color: #FFFBF7;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            opacity: 1;
+        }
+        
+        .footer-bottom {
+            margin-top: 3rem;
+            opacity: 0.5;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2.5rem;
+            }
+            
+            .feature, .step {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <span class="header-subtitle">IFTTT Automation</span>
+                <h1 class="header-title">Weather Is <span>Too Real</span></h1>
+                <p class="header-description">Let your inbox validate your weather feelings with perfectly timed musical suggestions</p>
+                <a href="#connect" class="btn btn-primary">Get Connected</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Concept Section -->
+    <section class="concept" id="concept">
+        <div class="container">
+            <div class="concept-heading text-center">
+                <span class="concept-subtitle">The Concept</span>
+                <h2>Why You Need This</h2>
+                <p>Sometimes we need our technology to understand what the weather is doing to our emotions</p>
+            </div>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">☔</div>
+                    <h3 class="feature-title">Weather Validation</h3>
+                    <p>Get your feelings about the weather validated by an email that truly understands. Yes, you should stay in bed. Yes, you should eat soup.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">🎵</div>
+                    <h3 class="feature-title">Perfect Soundtrack</h3>
+                    <p>Receive links to the perfect soundtrack for your weather-induced mood. Rainy day vibes enhanced by the perfect song.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="feature-title">Emotional Preparation</h3>
+                    <p>Be emotionally prepared for the day before even looking out the window. Your inbox knows what's up.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="process-heading text-center">
+                <span class="process-subtitle">The Process</span>
+                <h2>How It Works</h2>
+                <p>Our IFTTT applet connects weather data to your inbox for a seamless experience</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Weather Monitoring</h3>
+                    <p>Our applet connects to Weather Underground's API to constantly monitor precipitation in your area in real-time. If it detects rain, the applet springs into action.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Smart Detection</h3>
+                    <p>When rain is detected, the applet automatically triggers the response system without any input needed from you. The weather validation protocol initiates immediately.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Email Delivery</h3>
+                    <p>A perfectly timed email arrives in your inbox with the subject "It's raining! Stay in bed. Eat soup." along with a link to the perfect rainy day song. Your feelings are validated instantly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Preview Section -->
+    <section class="preview" id="preview">
+        <div class="container">
+            <div class="preview-heading text-center">
+                <span class="preview-subtitle">The Preview</span>
+                <h2>See It In Action</h2>
+                <p>Get a glimpse of what happens when the weather gets too real</p>
+            </div>
+            
+            <div class="preview-content">
+                <div class="weather-card">
+                    <div class="weather-header">
+                        <div class="weather-location">New York City</div>
+                        <div class="weather-date">Sunday, April 13</div>
+                    </div>
+                    <div class="weather-main">
+                        <div class="weather-temp">56°</div>
+                        <div class="weather-icon">☔</div>
+                    </div>
+                    <div class="weather-details">
+                        <div class="weather-detail">
+                            <div class="weather-detail-value">78%</div>
+                            <div class="weather-detail-label">Humidity</div>
+                        </div>
+                        <div class="weather-detail">
+                            <div class="weather-detail-value">12 mph</div>
+                            <div class="weather-detail-label">Wind</div>
+                        </div>
+                        <div class="weather-detail">
+                            <div class="weather-detail-value">0.5 in</div>
+                            <div class="weather-detail-label">Rain</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="email-card">
+                    <div class="email-header">
+                        <div class="email-subject">It's raining! Stay in bed. Eat soup.</div>
+                        <div class="email-sender">From: Weather Is Too Real</div>
+                    </div>
+                    <div class="email-body">
+                        <p>Hey there,</p>
+                        <p>It's currently raining in your area. This is your official permission to:</p>
+                        <ul class="email-list">
+                            <li>Stay in bed</li>
+                            <li>Cancel your plans</li>
+                            <li>Make soup</li>
+                            <li>Feel melancholy</li>
+                        </ul>
+                        <p>We've selected the perfect song for your rainy mood:</p>
+                        <a href="#" class="email-song">
+                            ▶️ "Rainy Day" by Coldplay
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Connect Section -->
+    <section class="connect" id="connect">
+        <div class="container">
+            <div class="connect-content">
+                <span class="connect-subtitle">Get Started</span>
+                <h2 class="connect-heading">Ready For Weather Validation?</h2>
+                <p class="connect-desc">Set up this IFTTT applet in just a few clicks and start receiving weather validation emails today.</p>
+                <a href="https://ift.tt/KT2aYRP" class="btn" target="_blank">Connect with IFTTT</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <h3>Weather Is Too Real</h3>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">Contact</a>
+                </div>
+                <div class="footer-bottom">
+                    &copy; 2025 Weather Is Too Real. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Simple JavaScript to handle smooth scrolling
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update current date
+            const dateElement = document.querySelector('.weather-date');
+            if (dateElement) {
+                const date = new Date();
+                const options = { weekday: 'long', month: 'long', day: 'numeric' };
+                dateElement.textContent = date.toLocaleDateString('en-US', options);
+            }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
