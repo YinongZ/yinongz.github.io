@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title></title> <!-- Empty title tag -->
+    <meta name="viewport" content="width=device-width">
+    <!-- Explicitly block favicon with a transparent 1x1px image -->
+    <link rel="icon" href="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" type="image/gif">
+    <!-- These override any other favicon references that might be present -->
+    <link rel="shortcut icon" href="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+    <link rel="apple-touch-icon" href="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+    <!-- Removed meta author and copyright tags -->
+    <script language="javascript" type="text/javascript" src="https://namespace.studio/wp-content/themes/namespace/scripts/jquery-3.3.1.min.js"></script>
+    <script language="javascript" type="text/javascript" src="https://namespace.studio/wp-content/themes/namespace/scripts/jquery-ui-1.12.1.min.js"></script>
+    <script language="javascript" type="text/javascript">
+        function createCookie(name,value,days) {
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime()+(days*24*60*60*1000));
+                var expires = "; expires="+date.toGMTString();
+            }
+            else var expires = "";
+            document.cookie = name+"="+value+expires+"; path=/";
+        }
+        function readCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0;i < ca.length;i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+            }
+            return null;
+        }
+        /*
+        function eraseCookie(name) {
+            createCookie(name,"",-1);
+        }
+        */
+
+
+        $(document).ready(function() {
+            // check cookie
+            var cval = readCookie('ckytxtimg');
+            if (cval) {
+                if(cval == "img"){
+                    $( ".left" ).addClass( "visual" );
+                    $( ".left" ).removeClass( "text" );
+                    $( ".txtimg" ).text("txt");
+                }
+                else {
+                    $( ".txtimg" ).text("img");
+                }
+            } else {
+                $( ".txtimg" ).text("img");
+            }
+            // visual / text view button
+            $( ".txtimg" ).click(function() {
+                var str = $( this ).text();
+                if( str == "img"){
+                    $( ".left" ).addClass( "visual" );
+                    $( ".left" ).removeClass( "text" );
+                    createCookie("ckytxtimg","img",31);
+                    $( this ).text("txt");
+                } else {
+                    $( ".left" ).addClass( "text" );
+                    $( ".left" ).removeClass( "visual" );
+                    createCookie("ckytxtimg","txt",31);
+                    $( this ).text("img");
+                }
+            });
+            // wait for cookie then fade in projectlist
+            $( ".left" ).fadeIn('fast');
+            // set value of form input
+            $( "#mailerlite-1-field-email" ).val("email address");
+            $( "#mailerlite-1-field-email" ).focusin(function() {
+                $( this ).val(" ");
+                $( this ).css("color", "#9013FE");
+            });
+
+            var liitem, label, selector, adjustX, adjustY;
+        	$(".channelfeed .label").hide();
+        	$(".channelfeed.text li").hover(function(){
+                liitem = $(this);
+                label = $(this).find(".label");
+                $(label).show();
+                moveBox();
+        	},function(){
+        		 $(label).hide();
+        	});
+
+            function moveBox(){
+        		$(liitem).bind('mousemove',function(event){
+        			adjustX = $(label).outerWidth(true);
+        			adjustY = $(label).outerHeight(true);
+        			var my = event.pageY-adjustY;
+        			var mx = event.pageX+20;
+        			$(label).css({ "left": mx, "top": my });
+        		});
+            }
+        });
+    </script>
+    <!-- Removed meta tags for theme colors and favicon references -->
+    <!-- Removed meta tags for robots -->
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	
+    <!-- Keep all other style and script blocks as is -->
+    <link rel='stylesheet' id='wp-block-library-css' href='https://namespace.studio/wp-includes/css/dist/block-library/style.min.css?ver=6.8' type='text/css' media='all' />
+    <style id='classic-theme-styles-inline-css' type='text/css'>
+    /*! This file is auto-generated */
+    .wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+    </style>
+    <!-- Keep all other style blocks -->
+    <link rel='stylesheet' id='style-style-css' href='style.css' type='text/css' media='all' />
+    <script type="text/javascript" src="https://namespace.studio/wp-content/plugins/cookie-notice/js/front.min.js?ver=2.4.16" id="cookie-notice-front-js"></script>
+</head>
+<body data-rsssl=1 class="wp-singular page-template-default page page-id-10 wp-theme-namespace cookies-set cookies-accepted" >
+    <main>
+<section class="left text">
+		<div class="projecttitle">projects</div>
+	<ul class="projects">
+
+        <li id="192" class="">
+			<a href="reading w2.html">
+</div>
+			<span class="ptitle">Reading Response Week2</span>
+			<span class="psubtitle">Mail Art and the Big Monster from Second Thoughts</span>
+									</a>
+		</li>
+					<li id="53" class="">
+			<a href="reading w3.html">
+</div>
+			<span class="ptitle">Reading Response Week3</span>
+			<span class="psubtitle">Selections from Creative Independent and Arena How Do You Use the Internet Mindfully</span>
+									</a>
+		</li>
+					<li id="58" class="">
+			<a href="reading w4.html">
+</div>
+			<span class="ptitle">Reading Response Week4</span>
+			<span class="psubtitle">STILL THERE Ruins and Templates of Geocities from Lost and Living (in) Archives</span>
+									</a>
+		</li>
+					<li id="55" class="">
+			<a href="reading w5.html">
+</div>
+			<span class="ptitle">Reading Response Week5</span>
+			<span class="psubtitle">Selections from Publishing from Post-Digital-Print</span>
+									</a>
+		</li>
+					<li id="57" class="">
+			<a href="reading w7.html">
+			<span class="ptitle">Reading Response Week7</span>
+			<span class="psubtitle">Selections from Alt-Text as Poetry Workbook</span>
+									</a>
+		</li>
+					<li id="56" class="">
+			<a href="reading w8.html">
+			<span class="ptitle">Reading Response Week8</span>
+			<span class="psubtitle">"A Personal Computer for Children of All Cultures" from Decolonising the Digital</span>
+									</a>
+		</li>
+					<li id="59" class="">
+			<a href="reading w10.html">
+			<span class="ptitle">Reading Response Week10</span>
+			<span class="psubtitle">Selections from A *New* Program for Graphic Design</span>
+									</a>
+		</li>
+					<li id="198" class="">
+			<a href="reading w12.html">
+			<span class="ptitle">Reading Response Week12</span>
+			<span class="psubtitle">Beyond the New Media Frame The Poetics of Absence in Vera Frenkel's String Games</span>
+									</a>
+		</li>
+					<li id="197" class="">
+			<a href="reading w13.html">
+			<span class="ptitle">Reading Response Week13</span>
+			<span class="psubtitle">Performing the Feed</span>
+									</a>
+		</li>
+					<li id="319" class="">
+			<a href="reading w14.html">
+			<span class="ptitle">Reading Response Week14</span>
+			<span class="psubtitle">Beyond Dark Matter from Logic Issue 15 Beacons</span>
+									</a>
+		</li>
+					<li id="96" class="">
+			<a href="reading w15.html">
+			<span class="ptitle">Reading Response Week15</span>
+			<span class="psubtitle">Art on the Internet</span>
+									</a>
+		</li>
+		</ul>
+</section>
+<header class="header middle">
+	<div class="menu-container">
+		<div class="menu-main-container"><ul id="menu-main" class="menu"><li id="menu-item-74" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-74"><a href="index.html">project</a></li>
+<li id="menu-item-75" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-10 current_page_item menu-item-75"><a href="reading.html" aria-current="">reading</a></li>
+<!-- <li id="menu-item-76" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-76"><a href="https://namespace.studio/contact/">contact</a></li> -->
+	</div>
+</header>
+<section class="right">
+						<div class="image"></div>
+				<div class="content">
+			<h3>[Reading List]</h3>
+<p>Week2 Ulises Carrión - Mail Art and the Big Monster from Second Thoughts</p>
+<p>Week3 Laurel Schwulst & Édouard U - Selections from Creative Independent and Arena How Do You Use the Internet Mindfully</p>
+<p>Week4 Olia Lialina - STILL THERE Ruins and Templates of Geocities from Lost and Living (in) Archives</p>
+<p>Week5 Alessandro Ludovico & Florian Cramer - Selections from Publishing from Post-Digital-Print</p>
+<p>Week7 Bojana Coklyat & Shannon Finnegan - Selections from Alt-Text as Poetry Workbook</p>
+<p>Week8 Ramsey Nasser - "A Personal Computer for Children of All Cultures" from Decolonising the Digital</p>
+<p>Week10 David Reinfurt - Selections from A *New* Program for Graphic Design</p>
+<p>Week12 Dot Tuer - Beyond the New Media Frame The Poetics of Absence in Vera Frenkel's String Games</p>
+<p>Week13 Paul Soulellis - Performing the Feed</p>
+<p>Week14 Neta Bomani & Sabii Borno - Beyond Dark Matter from Logic Issue 15 Beacons</p>
+<p>Week15 Boris Groys - Art on the Internet</p>
+			</div>
+			</section>
+</main>
+<footer class="footer">
+    <div class="flogo"><a href="index.html"><span>[</span>A<span>rt] of the</span> W<span>eb 2025</span></a></div>
+    <div class="fleft">interactive concepts for art + design<span>
+     . page :  reading list    </span></div>
+    <div class="fright">Yinong Zhang . <span> 
+		Professor: Greyory Blake </span></div>
+</footer>
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/namespace\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+</html>
