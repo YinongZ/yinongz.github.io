@@ -373,7 +373,7 @@
   }
   body {
 	font-family: "sNsp", "Helvetica", Helvetica, Arial, sans-serif;
-	color: #9013FE;
+	color: rgb(220, 174, 46);
 	min-height: 100%;
 	width: 100%;
 	line-height: 1.4;
@@ -418,7 +418,7 @@
 	transition: all 0.5s ease-out;
   }
   a, a:hover, a:visited {
-	color: #9013FE;
+	color: rgb(220, 174, 46);
 	text-decoration: none;
   }
   h1, h2, h3, h4, h5, h6 {
@@ -509,8 +509,8 @@
   }
   p a, p a:visited, p a:hover {
 	text-decoration: none;
-	border-bottom: 1px #9013FE solid;
-	color: #9013FE;
+	border-bottom: 1px rgb(220, 174, 46) solid;
+	color: rgb(220, 174, 46);
   }
   strong, b {
 	font-family: "sNsp-Bold", "Helvetica", Helvetica, Arial, sans-serif;
@@ -533,7 +533,7 @@
 	}
   }
   header .menu a, header .menu a:visited {
-	color: #9013FE;
+	color: rgb(220, 174, 46);
 	-webkit-transition: all 0.5s ease-out;
 	-moz-transition: all 0.5s ease-out;
 	-ms-transition: all 0.5s ease-out;
@@ -572,7 +572,7 @@
 	letter-spacing: 1px;
 	font-size: 70%;
 	line-height: 1;
-	background: #9013FE;
+	background: rgb(220, 174, 46);
 	-webkit-border-radius: 15px;
 	-moz-border-radius: 15px;
 	-ms-border-radius: 15px;
@@ -582,7 +582,7 @@
 	padding: 0.5rem 1rem 0.1rem 1rem;
 	margin: 4px 0;
 	margin: 0.4rem 0;
-	border: 1px #9013FE solid;
+	border: 1px rgb(220, 174, 46) solid;
 	-webkit-transition: all 0.2s ease-out;
 	-moz-transition: all 0.2s ease-out;
 	-ms-transition: all 0.2s ease-out;
@@ -591,14 +591,14 @@
   }
   header .submenu li:hover {
 	cursor: pointer;
-	color: #9013FE;
+	color: rgb(220, 174, 46);
 	background: white;
   }
   header .submenu li.arena--button {
 	background: white;
   }
   header .submenu li.arena--button:hover {
-	background: #9013FE;
+	background: rgb(220, 174, 46);
   }
   header .submenu li.arena--button:hover a {
 	color: white;
@@ -622,39 +622,94 @@
   /* -----------------------------------------------
    * General Items
    * --------------------------------------------- */
+  /* Modified grid layout - extends left column, shrinks right column */
   main {
 	position: relative;
-	border-right: solid #9013FE 20px;
+	border-right: solid rgb(220, 174, 46) 20px;
 	width: 100%;
-	min-height: 100vh;
+	height: 100vh; /* Set fixed height to enable scrolling */
 	display: grid;
-	grid-template-columns: 37.5% 12.5% 50%;
+	grid-template-columns: 48% 13% 39%; /* Modified from 37.5% 12.5% 50% */
 	grid-template-areas: "left middle right";
+	overflow: hidden; /* Prevent main container from scrolling */
   }
+  
   @media (max-width: 599px) {
-	main {
-	  border-right: solid #9013FE 10px;
-	  grid-template-columns: 100%;
-	  grid-template-areas: "middle" "right" "left";
-	}
+  main {
+    border-right: solid rgb(220, 174, 46) 10px;
+    grid-template-columns: 100%;
+    grid-template-areas: "middle" "right" "left";
+    height: auto; /* Reset height for mobile */
+    overflow: auto; /* Allow scrolling on mobile */
   }
-  @media (min-width: 600px) {
-	main {
-	  border-right: solid #9013FE 15px;
-	  grid-template-columns: 35% 15% 50%;
-	}
+  
+  main .left, 
+  main .middle, 
+  main .right {
+    height: auto; /* Reset height for mobile */
+    max-height: none; /* Remove max-height for mobile */
+    overflow: visible; /* Reset overflow for mobile */
   }
-  @media (min-width: 900px) {
-	main {
-	  border-right: solid #9013FE 20px;
-	  grid-template-columns: 37.5% 12.5% 50%;
-	}
+}
+
+@media (min-width: 600px) {
+  main {
+    border-right: solid rgb(220, 174, 46) 15px;
+    grid-template-columns: 48% 13% 39%; /* Modified from 35% 15% 50% */
   }
-  @media (min-width: 1200px) {
-	main {
-	  grid-template-columns: 40% 10% 50%;
-	}
+}
+
+@media (min-width: 900px) {
+  main {
+    border-right: solid rgb(255, 233, 79) 20px;
+    grid-template-columns: 48% 13% 39%; /* Modified from 37.5% 12.5% 50% */
   }
+}
+
+@media (min-width: 1200px) {
+  main {
+    grid-template-columns: 48% 13% 39%; /* Modified from 40% 10% 50% */
+  }
+}
+
+/* Make left and right columns independently scrollable */
+main .left, 
+main .right {
+  height: 100vh;
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  scrollbar-width: thin; /* For Firefox */
+}
+
+/* Style scrollbars for webkit browsers */
+main .left::-webkit-scrollbar,
+main .right::-webkit-scrollbar {
+  width: 6px;
+}
+
+main .left::-webkit-scrollbar-thumb,
+main .right::-webkit-scrollbar-thumb {
+  background-color: rgba(144, 19, 254, 0.4); /* Purple with opacity */
+  border-radius: 3px;
+}
+
+main .left::-webkit-scrollbar-track,
+main .right::-webkit-scrollbar-track {
+  background: rgba(230, 230, 230, 0.3);
+}
+
+/* Middle column */
+main .middle {
+  height: 100vh;
+  overflow-y: auto; /* Allow scrolling if needed */
+}
+
+/* Fix for any absolute positioned elements */
+main .left .content,
+main .right .content {
+  position: relative;
+}
+  
   main .left {
 	grid-area: left;
   }
@@ -772,7 +827,7 @@
 	color: white;
   }
   .error404 .right {
-	background-color: #9013FE;
+	background-color: rgb(220, 174, 46);
   }
   .container {
 	position: relative;
@@ -871,7 +926,7 @@
 	border-radius: 4px;
   }
   ul.projects li a:hover .pnew {
-	background: #9013FE;
+	background: rgb(220, 174, 46);
   }
   ul.projects li .pdev, ul.projects li .pnew {
 	-webkit-transition: all 0.8s ease-out;
@@ -985,10 +1040,10 @@
 	border-radius: 2px;
   }
   .left.text ul.projects li.current a {
-	color: #9013FE;
+	color: rgb(220, 174, 46);
   }
   .left.text ul.projects li.current .pnew {
-	background: #9013FE;
+	background: rgb(220, 174, 46);
   }
   .left.text ul.projects li.current .pnew, .left.text ul.projects li.current .pdev {
 	opacity: 1;
@@ -1113,7 +1168,7 @@
 	display: none;
   }
   .left.visual ul.projects li.current .ptitle, .left.visual ul.projects li.current a:hover .ptitle {
-	background: #9013FE;
+	background: rgb(220, 174, 46);
 	color: white;
   }
   .left.visual ul.projects li.current img {
@@ -1227,7 +1282,7 @@
   }
   .single-project .right .pimages .backtotop a:hover {
 	color: white;
-	background: #9013FE;
+	background: rgb(220, 174, 46);
 	-webkit-transition: all 0.3s ease-out;
 	-moz-transition: all 0.3s ease-out;
 	-ms-transition: all 0.3s ease-out;
@@ -1286,7 +1341,7 @@
 	font-size: 90%;
   }
   .single-project .right .project-meta .txt {
-	color: #9013FE;
+	color: rgb(220, 174, 46);
   }
   .footer {
 	z-index: 100;
@@ -1341,7 +1396,7 @@
   }
   .footer .fleft span {
 	text-transform: lowercase;
-	color: #9013FE;
+	color: rgb(220, 174, 46);
   }
   @media (max-width: 599px) {
 	.footer .fleft span {
@@ -1356,7 +1411,7 @@
 	margin-right: 3rem;
   }
   .footer .fright span {
-	color: #9013FE;
+	color: rgb(220, 174, 46);
 	}
   @media (max-width: 599px) {
 	.footer .fright {
@@ -1365,7 +1420,7 @@
 	}
 	.footer .fright span {
 		text-transform: lowercase;
-		color: #9013FE;
+		color: rgb(220, 174, 46);
 	}	
   }
   .home .flogo a span {
@@ -1380,14 +1435,14 @@
 	text-decoration: none;
   }
   .editpost a:hover {
-	color: #9013FE;
+	color: rgb(220, 174, 46);
   }
   ::selection {
-	background: #9013FE;
+	background: rgb(220, 174, 46);
 	color: white;
   }
   ::-moz-selection {
-	background: #9013FE;
+	background: rgb(220, 174, 46);
 	color: white;
   }
   a.button {
@@ -1400,7 +1455,7 @@
 	-ms-border-radius: 20px;
 	border-radius: 20px;
 	background: white;
-	color: #9013FE;
+	color: rgb(220, 174, 46);
 	border: 1px white solid;
 	-webkit-transition: all 0.2s ease-out;
 	-moz-transition: all 0.2s ease-out;
@@ -1409,7 +1464,7 @@
 	transition: all 0.2s ease-out;
   }
   a.button:hover {
-	background: #9013FE;
+	background: rgb(220, 174, 46);
 	color: white;
 	border: 1px white solid;
   }
@@ -1440,7 +1495,7 @@
   .mailerlite-form h3, .mailerlite-form h4 {
 	font-size: 100%;
 	margin: 0;
-	color: #9013FE;
+	color: rgb(220, 174, 46);
   }
   .mailerlite-form .mailerlite-subscribe-button-container, .mailerlite-form .mailerlite-form-field {
 	display: inline-block;
@@ -1485,7 +1540,7 @@
 	border-radius: 15px;
   }
   .mailerlite-form input[type=submit]:hover {
-	background: #9013FE;
+	background: rgb(220, 174, 46);
   }
   .mailerlite-form .mailerlite-form-response {
 	margin-top: 12px;
@@ -1574,10 +1629,10 @@
 	-moz-border-radius: 15px;
 	-ms-border-radius: 15px;
 	border-radius: 15px;
-	color: #9013FE;
+	color: rgb(220, 174, 46);
 	padding: 6px 10px 2px 10px;
 	padding: 0.6rem 1rem 0.2rem 1rem;
-	border: 1px #9013FE solid;
+	border: 1px rgb(220, 174, 46) solid;
 	-webkit-transition: all 0.2s ease-out;
 	-moz-transition: all 0.2s ease-out;
 	-ms-transition: all 0.2s ease-out;
@@ -1594,7 +1649,7 @@
 	line-height: 1;
   }
   main .right.arena .channels--button:hover {
-	background: #9013FE;
+	background: rgb(220, 174, 46);
   }
   main .right.arena .channels--button:hover a {
 	color: #e6e6e6;
@@ -1647,7 +1702,7 @@
 	line-height: 1;
 	margin: 0 15px 10px 0;
 	margin: 0 1.5rem 1rem 0;
-	border: 1px #9013FE solid;
+	border: 1px rgb(220, 174, 46) solid;
 	-webkit-border-radius: 50px;
 	-moz-border-radius: 50px;
 	-ms-border-radius: 50px;
@@ -1684,7 +1739,7 @@
 	}
   }
   .page-template-_tpl_arenachannels main ul.arena--channels li:hover {
-	background: #9013FE;
+	background: rgb(220, 174, 46);
   }
   .page-template-_tpl_arenachannels main ul.arena--channels li:hover a {
 	color: white;
@@ -1788,7 +1843,7 @@
 	display: block;
 	padding: 4px 12px 3px 12px;
 	padding: 0.4rem 1.2rem 0.3rem 1.2rem;
-	border: 1px solid #9013FE;
+	border: 1px solid rgb(220, 174, 46);
 	-webkit-border-radius: 20px;
 	-moz-border-radius: 20px;
 	-ms-border-radius: 20px;
@@ -1796,7 +1851,7 @@
 	line-height: 1;
   }
   .single-channel main ul.channelnav li a.active, .single-channel main ul.channelnav li a:hover {
-	background: #9013FE;
+	background: rgb(220, 174, 46);
 	color: #fafafa;
   }
   .single-channel main ul.channelfeed {
