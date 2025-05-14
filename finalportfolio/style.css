@@ -678,24 +678,15 @@ main .right {
   height: 100vh;
   overflow-y: auto; /* Enable vertical scrolling */
   overflow-x: hidden; /* Prevent horizontal scrolling */
-  scrollbar-width: thin; /* For Firefox */
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* Hide scrollbars in IE/Edge */
 }
 
 /* Style scrollbars for webkit browsers */
 main .left::-webkit-scrollbar,
 main .right::-webkit-scrollbar {
-  width: 6px;
-}
-
-main .left::-webkit-scrollbar-thumb,
-main .right::-webkit-scrollbar-thumb {
-  background-color: rgba(53, 181, 72, 0.4); /* Purple with opacity */
-  border-radius: 3px;
-}
-
-main .left::-webkit-scrollbar-track,
-main .right::-webkit-scrollbar-track {
-  background: rgba(230, 230, 230, 0.3);
+	width: 0;
+	display: none; /* Hide scrollbar */
 }
 
 /* Middle column */
